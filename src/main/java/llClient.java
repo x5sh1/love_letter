@@ -1,6 +1,7 @@
-import java.net.*;
+import model.card;
+import model.player;
+
 import java.io.*;
-import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,7 +15,7 @@ class llClient implements rules{
 	private int user;
 	private String userN;
 	int targetScore;
-	// player status
+	// model.player status
 	private final int regularS = 1;
 	private final int readyS = 2;
 	private final int defeatedS = 0;
@@ -213,7 +214,7 @@ class llClient implements rules{
 
 	// command WEL
 	public void welHandle(){
-		String noti = "Welcome! player.";
+		String noti = "Welcome! model.player.";
 		JOptionPane.showMessageDialog(null, noti);
 	}
 
@@ -285,7 +286,7 @@ class llClient implements rules{
 			String commd = "SCORE:" + cmd;
 			send(commd);
 		}else{
-			String msg = "Game will start soon, please wait player " + clients[tar].getUsername() + " for choosing game rounds.";
+			String msg = "Game will start soon, please wait model.player " + clients[tar].getUsername() + " for choosing game rounds.";
 			JOptionPane.showMessageDialog(null, msg);
 		}
 
@@ -363,7 +364,7 @@ class llClient implements rules{
 			}
 		}
 	}
-	// card enter
+	// model.card enter
 	 public void cardEntered(java.awt.event.MouseEvent evt) { 
 	 	JButton temButton = (JButton)evt.getSource();
 	 	int x = temButton.getX();
@@ -373,7 +374,7 @@ class llClient implements rules{
 	 	gui.desField.setText(temButton.getToolTipText());
 	 }
 
-	 // card exit
+	 // model.card exit
 	 public void cardExit(java.awt.event.MouseEvent evt){
 	 	JButton temButton = (JButton)evt.getSource();
 	 	int x = temButton.getX();
@@ -382,7 +383,7 @@ class llClient implements rules{
 	 	gui.desField.setText("");
 	 }
 
-	// card button
+	// model.card button
 	public void CardClicked(java.awt.event.ActionEvent evt){
 		if(user == cuTurn){
 			gui.conBu.setVisible(true);
@@ -568,7 +569,7 @@ class llClient implements rules{
 		if(!content.equals("none")){
 			int uCode = Integer.parseInt(content.split("-")[0]);
 			String coll = content.split("-")[1];
-			String noti = clients[uCode].getUsername() + "' card is " + coll + ".";
+			String noti = clients[uCode].getUsername() + "' model.card is " + coll + ".";
 			gui.effectField.append(noti + "\n");
 			gui.effectField.append("----------------------------\n");
 			gui.effectField.setCaretPosition(gui.effectField.getText().length());

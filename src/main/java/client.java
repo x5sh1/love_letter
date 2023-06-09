@@ -1,7 +1,7 @@
+import model.player;
+
 import java.net.*;
 import java.io.*;
-import java.util.*;
-import javax.swing.JOptionPane;
 
 // client side
 

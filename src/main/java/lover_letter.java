@@ -1,5 +1,8 @@
-class lover_letter implements rules{
-	// current player
+import model.card;
+import model.player;
+
+class lover_letter implements rules {
+	// current model.player
 	public int cPlayer = 0;
 	private player[] clients;
 	private Thread[] pool;
@@ -8,7 +11,7 @@ class lover_letter implements rules{
 	private int numPlayer = 0;
 	//game start
 	public boolean gameStart = true;
-	//player status
+	//model.player status
 	private final int regularS = 1;
 	private final int readyS = 2;
 	private final int defeatedS = 0;
@@ -50,7 +53,7 @@ class lover_letter implements rules{
 			cards[index] = new card("","",0,"");
 			if(index < 5){
 				cCode = guard + "_" + ide++;
-				description = "You can choose any player to guess card, if you are right, the target player lose, else nothing happen.";
+				description = "You can choose any model.player to guess model.card, if you are right, the target model.player lose, else nothing happen.";
 				cName = "guard";
 				strength = guard;
 			}
@@ -59,7 +62,7 @@ class lover_letter implements rules{
 			}
 			if(index > 4 && index < 7){
 				cCode = priest + "_" + ide++;
-				description = "You can choose any player to see card.";
+				description = "You can choose any model.player to see model.card.";
 				cName = "priest";
 				strength = priest;
 			}
@@ -68,7 +71,7 @@ class lover_letter implements rules{
 			}
 			if(index > 6 && index < 9){
 				cCode = baron + "_" + ide++;
-				description = "You can choose any player to compare cards' strength, player with lower strength lose.";
+				description = "You can choose any model.player to compare cards' strength, model.player with lower strength lose.";
 				cName = "baron";
 				strength = baron;
 			}
@@ -86,7 +89,7 @@ class lover_letter implements rules{
 			}
 			if(index > 10 && index < 13){
 				cCode = prince + "_" + ide++;
-				description = "You can choose any player to discard his or her card and he or she will draw a new card.";
+				description = "You can choose any model.player to discard his or her model.card and he or she will draw a new model.card.";
 				cName = "prince";
 				strength = prince;
 			}
@@ -98,13 +101,13 @@ class lover_letter implements rules{
 			}
 			if(index == 14){
 				cCode = countess + "_" + 70;
-				description = "You must discard this card when you have 'King' and 'Princess'.";
+				description = "You must discard this model.card when you have 'King' and 'Princess'.";
 				cName = "countess";
 				strength = countess;
 			}
 			if(index == 15){
 				cCode = princess + "_" + 80;
-				description = "You must protect this card, try not to discard this card.";
+				description = "You must protect this model.card, try not to discard this model.card.";
 				cName = "princess";
 				strength = princess;
 			}
@@ -177,7 +180,7 @@ class lover_letter implements rules{
 				return;
 			}
 		}
-		// set username for the player.
+		// set username for the model.player.
 		sender.setUsername(content);
 		// welcome
 		welH(sender);
@@ -208,7 +211,7 @@ class lover_letter implements rules{
 	}
 
 
-	// 'card' command
+	// 'model.card' command
 	public synchronized void cardH(){
 		if(roundCard == 16){
 			strengthH();
@@ -238,7 +241,7 @@ class lover_letter implements rules{
 	}
 
 
-	// shuffle cards and discard one card randomly.
+	// shuffle cards and discard one model.card randomly.
 	public synchronized void shuffle(){
 		for(int i = 0; i < cardNum; i++){
 			cards[i].reset();
@@ -410,7 +413,7 @@ class lover_letter implements rules{
 			// Priest
 			case 2:
 				target1 = Integer.parseInt(parameters[2]);
-				eContent = clients[senderCode].getUsername() + " uses Priest to see card of " + clients[target1].getUsername() + ". ";
+				eContent = clients[senderCode].getUsername() + " uses Priest to see model.card of " + clients[target1].getUsername() + ". ";
 				content = target1 + "-" +clients[target1].getIden();
 				break;
 
@@ -444,7 +447,7 @@ class lover_letter implements rules{
 				}else{
 					clients[target1].clear();
 					clients[target1].sendMsg("DISC:");
-					// draw new card
+					// draw new model.card
 					if(roundCard == 16){
 						strengthH();
 					}else{

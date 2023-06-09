@@ -1,6 +1,7 @@
+import model.player;
+
 import java.net.*;
 import java.io.*;
-import java.util.*;
 
 // server side
 
@@ -74,8 +75,8 @@ public class server{
 				PrintWriter writer = new PrintWriter(sock.getOutputStream());
 				writer.println("ESTABLISHED:");
 				writer.flush();
-				// if there is still room for new player.
-				// then let player in.
+				// if there is still room for new model.player.
+				// then let model.player in.
 				if(!game.gameStart){
 					writer.println("SORRY:");
 					writer.flush();

@@ -1,13 +1,13 @@
-import java.awt.BorderLayout;
+import model.player;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.border.EmptyBorder;
 
 // client GUI
 class clientGUI extends JFrame{
-	// player status
+	// model.player status
 	private final int regularS = 1;
 	private final int readyS = 2;
 	private final int defeatedS = 0;
@@ -31,9 +31,9 @@ class clientGUI extends JFrame{
 	// cards button
 	public JButton[] cards;
 	public JPanel cardP;
-	// card use confirm
+	// model.card use confirm
 	public JButton conBu;
-	//discard card buttion
+	//discard model.card buttion
 	public JButton disBu;
 	// target 1 
 	public JPanel tar1p;
@@ -79,18 +79,18 @@ class clientGUI extends JFrame{
      	turnLabel = new Label();
      	turnLabel.setVisible(false);
      	turnLabel.setBounds(0,400,150,20);
-     	// card button
+     	// model.card button
      	cards = new JButton[2];
      	cardP = new JPanel();
      	cardP.setLayout(new FlowLayout());
      	// cardP.setBackground(Color.RED);
      	cardP.setBounds(250,375,320,200);
      	cardP.setVisible(false);
-     	// card use confirm
+     	// model.card use confirm
      	conBu = new JButton("Confirm");
      	conBu.setBounds(350,340,80,20);
      	conBu.setVisible(false);
-     	// discard card button
+     	// discard model.card button
      	disBu = new JButton("Discard");
      	disBu.setBounds(440,340,80,20);
      	disBu.setVisible(false);
